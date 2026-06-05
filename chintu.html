@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webify Technology Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    overflow:hidden;
+    color:white;
+}
+
+/* Floating circles (same style as your main page) */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(0,229,255,0.12);
+    animation:float 8s infinite ease-in-out;
+    z-index:0;
+}
+
+.c1{
+    width:180px;
+    height:180px;
+    top:10%;
+    left:8%;
+}
+
+.c2{
+    width:220px;
+    height:220px;
+    bottom:10%;
+    right:8%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-40px);}
+    100%{transform:translateY(0);}
+}
+
+/* Main container */
+.container{
+    text-align:center;
+    z-index:1;
+}
+
+h1{
+    font-size:38px;
+    margin-bottom:20px;
+    color:#00e5ff;
+    text-shadow:0 0 10px #00e5ff;
+    animation:fadeDown 1.5s ease;
+}
+
+/* Login box (glass effect like your homepage nav) */
+.login-container{
+    width:360px;
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,229,255,0.2);
+    animation:fadeUp 1.5s ease;
+}
+
+/* Animations */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h2{
+    margin-bottom:20px;
+    color:#00e5ff;
+}
+
+/* Inputs */
+label{
+    display:block;
+    text-align:left;
+    margin-top:12px;
+    font-size:14px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border:1px solid #334155;
+    border-radius:5px;
+    background:#1e293b;
+    color:white;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#00e5ff;
+    box-shadow:0 0 8px #00e5ff;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:transparent;
+    color:#00e5ff;
+    border:2px solid #00e5ff;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+button:hover{
+    background:#00e5ff;
+    color:#000;
+    box-shadow:0 0 20px #00e5ff;
+    transform:scale(1.05);
+}
+
+/* Links */
+a{
+    display:block;
+    margin-top:15px;
+    font-size:14px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+a:hover{
+    color:#00e5ff;
+}
+
+#chintu{
+    margin-top:8px;
+}
+
+.message{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- floating background -->
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+<div class="container">
+
+    <h1>WEBIFY TECHNOLOGY</h1>
+
+    <div class="login-container">
+
+        <h2>Login</h2>
+
+        <form onsubmit="return false;">
+
+            <label>Username</label>
+            <input type="text" id="username" required>
+
+            <label>Password</label>
+            <input type="password" id="password" required>
+
+            <button type="button" onclick="login()">Login</button>
+
+            <a href="#">Forgot Password?</a>
+            <a id="chintu" href="chintu3.html">Register</a>
+
+            <div class="message" id="msg"></div>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+function login(){
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const msg = document.getElementById("msg");
+
+    const savedUser = localStorage.getItem("userName");
+    const savedPass = localStorage.getItem("userPass");
+
+    if(username === savedUser && password === savedPass){
+
+        msg.style.color = "#00ff88";
+        msg.innerHTML = "✔ Login Successful";
+
+        setTimeout(()=>{
+            window.location.href = "chintu2.html";
+        },1000);
+
+    } else {
+        msg.style.color = "#ff4d4d";
+        msg.innerHTML = "✖ Invalid Username or Password";
+    }
+}
+</script>
+
+</body>
+</html>

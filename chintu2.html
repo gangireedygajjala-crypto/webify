@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webify Technology</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Navigation */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#00e5ff;
+    text-shadow:0 0 10px #00e5ff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    transition:.4s;
+}
+
+nav ul li a:hover{
+    color:#00e5ff;
+    text-shadow:0 0 10px #00e5ff;
+}
+
+/* Hero */
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:65px;
+    margin-bottom:20px;
+    animation:fadeIn 2s;
+}
+
+.hero span{
+    color:#00e5ff;
+}
+
+.hero p{
+    font-size:22px;
+    width:60%;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:15px 40px;
+    text-decoration:none;
+    color:#00e5ff;
+    border:2px solid #00e5ff;
+    border-radius:30px;
+    transition:.4s;
+    display:inline-block;
+}
+
+.btn:hover{
+    background:#00e5ff;
+    color:black;
+    box-shadow:0 0 25px #00e5ff;
+    transform:scale(1.05);
+}
+
+/* Features */
+.features{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:60px 20px;
+}
+
+.box{
+    width:300px;
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    text-align:center;
+    transition:.5s;
+    border:1px solid #334155;
+}
+
+.box:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #00e5ff;
+    border-color:#00e5ff;
+}
+
+.box h2{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+/* Click button */
+.box a{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 25px;
+    text-decoration:none;
+    color:#00e5ff;
+    border:1px solid #00e5ff;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.box a:hover{
+    background:#00e5ff;
+    color:#000;
+    box-shadow:0 0 15px #00e5ff;
+    transform:scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Floating circles */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(0,229,255,0.15);
+    animation:float 8s infinite linear;
+    z-index:0;
+}
+
+.c1{
+    width:150px;
+    height:150px;
+    top:10%;
+    left:5%;
+}
+
+.c2{
+    width:200px;
+    height:200px;
+    bottom:10%;
+    right:5%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-40px);}
+    100%{transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+<nav>
+    <div class="logo">WEBIFY</div>
+
+    <ul>
+        <li><a href="chintu.html">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>Welcome To <span>Webify Technology</span></h1>
+
+    <p>
+        Build your future with modern web development,
+        programming, UI/UX design, and real-world projects.
+    </p>
+
+    <a href="#features" class="btn">Explore More</a>
+</section>
+
+<section class="features" id="features">
+
+    <div class="box">
+        <h2>Web Development</h2>
+        <p>Create responsive and modern websites using HTML, CSS, JavaScript and React.</p>
+        <a href="#">View</a>
+    </div>
+
+    <div class="box">
+        <h2>Programming</h2>
+        <p>Master C, C++, Python and Data Structures with practical examples.</p>
+        <a href="#">View</a>
+    </div>
+
+    <div class="box">
+        <h2>Placement Support</h2>
+        <p>Interview preparation, resume building and career guidance.</p>
+        <a href="#">View</a>
+    </div>
+
+</section>
+
+</body>
+</html>

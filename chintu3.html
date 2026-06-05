@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webify Register</title>
+
+    <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0f172a;
+    overflow:hidden;
+}
+
+/* Floating circles (same as your main website) */
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(0,229,255,0.12);
+    animation:float 8s infinite ease-in-out;
+    z-index:0;
+}
+
+.c1{
+    width:180px;
+    height:180px;
+    top:10%;
+    left:8%;
+}
+
+.c2{
+    width:220px;
+    height:220px;
+    bottom:10%;
+    right:8%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-40px);}
+    100%{transform:translateY(0);}
+}
+
+/* Register box */
+.box{
+    width:330px;
+    padding:25px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(0,229,255,0.2);
+    text-align:center;
+    z-index:1;
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h2{
+    color:#00e5ff;
+    margin-bottom:15px;
+    animation:zoom 2s infinite alternate;
+}
+
+@keyframes zoom{
+    from{transform:scale(1);}
+    to{transform:scale(1.08);}
+}
+
+label{
+    display:block;
+    text-align:left;
+    margin-top:10px;
+    font-size:14px;
+    color:white;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #334155;
+    border-radius:5px;
+    background:#1e293b;
+    color:white;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#00e5ff;
+    box-shadow:0 0 8px #00e5ff;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:transparent;
+    color:#00e5ff;
+    border:2px solid #00e5ff;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+button:hover{
+    background:#00e5ff;
+    color:#000;
+    box-shadow:0 0 20px #00e5ff;
+    transform:scale(1.05);
+}
+
+.msg{
+    margin-top:12px;
+    font-weight:bold;
+}
+
+    </style>
+</head>
+
+<body>
+
+<!-- background circles -->
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+<div class="box">
+    <h2>Register</h2>
+
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Full Name">
+
+    <label>Username</label>
+    <input type="text" id="username" placeholder="Username">
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="register()">Register</button>
+
+    <p class="msg" id="msg"></p>
+</div>
+
+<script>
+function register() {
+    const name = document.getElementById("name").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    const msg = document.getElementById("msg");
+
+    if (name === "" || username === "" || password === "") {
+        msg.style.color = "#ff4d4d";
+        msg.textContent = "Please fill all fields!";
+        return;
+    }
+
+    if (password.length < 4) {
+        msg.style.color = "#ff4d4d";
+        msg.textContent = "Password must be at least 4 characters!";
+        return;
+    }
+
+    localStorage.setItem("fullName", name);
+    localStorage.setItem("userName", username);
+    localStorage.setItem("userPass", password);
+
+    msg.style.color = "#00ff88";
+    msg.textContent = "Registration successful! Redirecting...";
+
+    setTimeout(() => {
+        window.location.href = "chintu2.html";
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
